@@ -1,5 +1,10 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class AdjazensmatrixArray implements GraphenInterface
@@ -12,6 +17,12 @@ public class AdjazensmatrixArray implements GraphenInterface
 		_adjazensmatrix = new int[20][20];	
 		_graphenGroesse = 0;
 	}
+	
+	public AdjazensmatrixArray(int groesse)
+	{
+		_adjazensmatrix = new int[groesse][groesse];
+		_graphenGroesse = groesse;
+	}
 
 	@Override
 	public void KnotenEinfuegen()
@@ -22,9 +33,10 @@ public class AdjazensmatrixArray implements GraphenInterface
 		}
 		else
 		{
+			Arrays.copyOf(_adjazensmatrix, _adjazensmatrix.length + 20);
 			for(int i = 0; i < _adjazensmatrix.length; ++i)
 			{
-				Arrays.copyOf(_adjazensmatrix[i], _adjazensmatrix.length + 20);		
+				Arrays.copyOf(_adjazensmatrix[i], _adjazensmatrix.length);		
 			}
 			++_graphenGroesse;
 		}
@@ -51,7 +63,7 @@ public class AdjazensmatrixArray implements GraphenInterface
 		{
 			if(_adjazensmatrix[knotenIndex][i] != 0)
 			{
-				nachbarknoten.add(_adjazensmatrix[knotenIndex][i]);
+				nachbarknoten.add(i);
 			}	
 		}
 		return nachbarknoten;
@@ -66,7 +78,14 @@ public class AdjazensmatrixArray implements GraphenInterface
 	@Override
 	public void DebugHilfe()
 	{
-		// TODO Auto-generated method stub	
+		for(int i = 0; i < _graphenGroesse; ++i)	
+		{
+			System.out.println();
+			for(int j = 0; j < _graphenGroesse; ++j)
+			{
+				System.out.print(_adjazensmatrix[i][j]);				
+			}
+		}
 	}
 	
 	public int gibGroesse()
