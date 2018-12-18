@@ -20,6 +20,15 @@ public class Adjazenzliste implements GraphenInterface
 		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
 	}
 	
+	public Adjazenzliste(int groesse)
+	{
+		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
+		for(int i = 1; i <= groesse; ++i)
+		{
+			KnotenEinfuegen();
+		}
+	}
+	
 	@Override
 	public void KnotenEinfuegen()
 	{
@@ -55,7 +64,15 @@ public class Adjazenzliste implements GraphenInterface
 	@Override
 	public void DebugHilfe()
 	{
-		// TODO Auto-generated method stub
+		for(int i = 0; i < _adjazenzliste.size(); ++i)
+		{
+			System.out.print("Knoten " + i + ":");
+			for(Integer j : gibNachbarknoten(i))
+			{
+				System.out.print(" " + j + " ");			
+			}
+			System.out.println();		
+		}
 	}
 	
 	public int gibGroesse()
