@@ -1,3 +1,5 @@
+import java.util.Set;
+
 /**
  * Ein Interface für Graphen mit entsprechendenn zugriffsfunktionen
  * 
@@ -27,16 +29,20 @@ public interface GraphenInterface
 	/**
 	 * gibt den Nachbarknoten wieder 
 	 */
-	public Knoten gibNachbarknoten();
+	public Set<Integer> gibNachbarknoten(int knotenIndex);
 	
 	/**
 	 * gibt die Gewichtung des Graphen wieder
 	 */
-	public void gibGewichtung();
+	public int gibGewichtung(int knoten1, int knoten2);
 
 	/**
 	 * schreibt den Graphen auf die Konsole, zur debug Hilfe
 	 */
 	public void DebugHilfe();
 
+	/**
+	 * Gibt die Anzahl der Knoten des Graphen zurück
+	 */
+	public int gibGroesse();
 }
