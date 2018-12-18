@@ -1,3 +1,9 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Implementation eines gewichteten Grpahen mit hilfe einer Adjazenzliste
  * 
@@ -6,19 +12,25 @@
  */
 public class Adjazenzliste implements GraphenInterface
 {
-
+               //Knotenindex <Nachbarknoten, Kantenlaenge zu diesem>
+	private List<Map<Integer, Integer>>_adjazenzliste;
+	
+	public Adjazenzliste()
+	{
+		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
+	}
+	
 	@Override
 	public void KnotenEinfuegen()
 	{
-		// TODO Auto-generated method stub
-		
+		Map<Integer, Integer> subMap = new HashMap<Integer, Integer>();
+		_adjazenzliste.add(subMap);		
 	}
 
 	@Override
 	public void KanteEinfuegen(int start, int ziel, int gewicht)
 	{
-		// TODO Auto-generated method stub
-		
+		_adjazenzliste.get(start).put(ziel, gewicht);	
 	}
 
 	@Override
@@ -29,24 +41,26 @@ public class Adjazenzliste implements GraphenInterface
 	}
 
 	@Override
-	public Knoten gibNachbarknoten()
+	public Set<Integer> gibNachbarknoten(int knotenindex)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return _adjazenzliste.get(knotenindex).keySet();
 	}
 
 	@Override
-	public void gibGewichtung()
+	public int gibGewichtung(int knoten1, int knoten2)
 	{
-		// TODO Auto-generated method stub
-		
+		return _adjazenzliste.get(knoten1).get(knoten2);	
 	}
 
 	@Override
 	public void DebugHilfe()
 	{
 		// TODO Auto-generated method stub
-		
+	}
+	
+	public int gibGroesse()
+	{
+		return _adjazenzliste.size();
 	}
 
 }
