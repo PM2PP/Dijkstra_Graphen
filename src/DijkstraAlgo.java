@@ -18,6 +18,8 @@ public class DijkstraAlgo
 
 	public Map<Integer, Integer> ermittleKuerzestenWege(int startKnoten)
 	{
+		_kuerzesterKnotenwegListe = new HashMap<Integer, Integer>();
+		_besuchteKnoten = new HashSet<Integer>();
 		int bisherigeDistanz;
 		_kuerzesterKnotenwegListe.put(startKnoten, 0);
 
