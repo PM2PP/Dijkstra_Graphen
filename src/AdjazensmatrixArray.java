@@ -43,10 +43,10 @@ public class AdjazensmatrixArray implements GraphenInterface
 		}
 		else
 		{
-			int[][] hilfsarray = new int[_graphenGroesse+20][_graphenGroesse+20];
-			for(int i = 0; i < _adjazensmatrix.length; ++i)
+			int[][] hilfsarray = new int[_graphenGroesse + 20][_graphenGroesse + 20];
+			for (int i = 0; i < _adjazensmatrix.length; ++i)
 			{
-				for(int j = 0; j < _adjazensmatrix[i].length; ++j)
+				for (int j = 0; j < _adjazensmatrix[i].length; ++j)
 				{
 					hilfsarray[i][j] = _adjazensmatrix[i][j];
 				}

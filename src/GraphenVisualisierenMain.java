@@ -13,7 +13,7 @@ public class GraphenVisualisierenMain
 		Adjazenzliste adjazensliste;
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
-		System.out.print("Gib die Graphengroesse ein: ");
+		System.out.print("Gib die Graphengroesse ein (muss > 5 sein): ");
 		int eingabe = Integer.parseInt(br.readLine());
 		adjazensmatrix = new AdjazensmatrixArray(eingabe, false);
 		adjazensliste = new Adjazenzliste(eingabe);
@@ -41,8 +41,6 @@ public class GraphenVisualisierenMain
 			adjazensmatrix.KanteEinfuegen(2, 5, 8);
 			adjazensmatrix.KanteEinfuegen(3, 4, 7);
 			adjazensmatrix.KanteEinfuegen(4, 5, 6);
-			
-
 		}
 
 		adjazensmatrix.DebugHilfe();
@@ -52,6 +50,12 @@ public class GraphenVisualisierenMain
 		adjazensmatrixZufall1.DebugHilfe();
 		System.out.println();
 		adjazensmatrixZufall2.DebugHilfe();
+		System.out.println();	
+		DijkstraAlgo algoM = new DijkstraAlgo(adjazensmatrix); 
+		System.out.println(algoM.ermittleKuerzestenWege(1));
+		System.out.println();
+		DijkstraAlgo algoL = new DijkstraAlgo(adjazensliste); 
+		System.out.println(algoL.ermittleKuerzestenWege(1));
 
 	}
 }
