@@ -26,6 +26,7 @@ public class Test_Algo
 		
 		assertEquals(algoM.ermittleKuerzestenWege(0).toString(), "{0=0, 1=3, 2=4, 3=6, 4=10, 5=12}");
 		assertEquals(algoM.ermittleKuerzestenWege(1).toString(), "{0=3, 1=0, 2=7, 3=3, 4=7, 5=13}");
+		assertEquals(algoM.ermittleKuerzestenWege(2).toString(), "{0=3, 1=0, 2=7, 3=3, 4=7, 5=13}");
 		
 		
 		
