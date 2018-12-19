@@ -70,7 +70,7 @@ public class Adjazenzliste implements GraphenInterface
 			System.out.print("Knoten " + i + ":");
 			for(Integer j : gibNachbarknoten(i))
 			{
-				System.out.print(" " + j + " ");			
+				System.out.print(" " + j + " " + "(" + gibGewichtung(i, j) + ")");			
 			}
 			System.out.println();		
 		}
