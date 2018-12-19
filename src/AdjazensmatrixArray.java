@@ -11,13 +11,13 @@ public class AdjazensmatrixArray implements GraphenInterface
 {
 	private int[][] _adjazensmatrix;
 	private int _graphenGroesse;
-	
-	public AdjazensmatrixArray() 
+
+	public AdjazensmatrixArray()
 	{
-		_adjazensmatrix = new int[20][20];	
+		_adjazensmatrix = new int[20][20];
 		_graphenGroesse = 0;
 	}
-	
+
 	public AdjazensmatrixArray(int groesse)
 	{
 		_adjazensmatrix = new int[groesse][groesse];
@@ -27,16 +27,16 @@ public class AdjazensmatrixArray implements GraphenInterface
 	@Override
 	public void KnotenEinfuegen()
 	{
-		if(_graphenGroesse < _adjazensmatrix.length)
+		if (_graphenGroesse < _adjazensmatrix.length)
 		{
-		++_graphenGroesse;
+			++_graphenGroesse;
 		}
 		else
 		{
 			Arrays.copyOf(_adjazensmatrix, _adjazensmatrix.length + 20);
-			for(int i = 0; i < _adjazensmatrix.length; ++i)
+			for (int i = 0; i < _adjazensmatrix.length; ++i)
 			{
-				Arrays.copyOf(_adjazensmatrix[i], _adjazensmatrix.length);		
+				Arrays.copyOf(_adjazensmatrix[i], _adjazensmatrix.length);
 			}
 			++_graphenGroesse;
 		}
@@ -45,7 +45,8 @@ public class AdjazensmatrixArray implements GraphenInterface
 	@Override
 	public void KanteEinfuegen(int start, int ziel, int gewicht)
 	{
-		_adjazensmatrix[start][ziel] = gewicht;	
+		_adjazensmatrix[start][ziel] = gewicht;
+		_adjazensmatrix[ziel][start] = gewicht;
 	}
 
 	@Override
@@ -59,12 +60,12 @@ public class AdjazensmatrixArray implements GraphenInterface
 	public Set<Integer> gibNachbarknoten(int knotenIndex)
 	{
 		Set<Integer> nachbarknoten = new HashSet<Integer>();
-		for(int i = 0; i < _adjazensmatrix[knotenIndex].length; ++i)
+		for (int i = 0; i < _adjazensmatrix[knotenIndex].length; ++i)
 		{
-			if(_adjazensmatrix[knotenIndex][i] != 0)
+			if (_adjazensmatrix[knotenIndex][i] != 0)
 			{
 				nachbarknoten.add(i);
-			}	
+			}
 		}
 		return nachbarknoten;
 	}
@@ -78,16 +79,17 @@ public class AdjazensmatrixArray implements GraphenInterface
 	@Override
 	public void DebugHilfe()
 	{
-		for(int i = 0; i < _graphenGroesse; ++i)	
+		for (int i = 0; i < _graphenGroesse; ++i)
 		{
 			System.out.println();
-			for(int j = 0; j < _graphenGroesse; ++j)
+			for (int j = 0; j < _graphenGroesse; ++j)
 			{
-				System.out.print(_adjazensmatrix[i][j]);				
+				System.out.print(_adjazensmatrix[i][j]);
 			}
+
 		}
 	}
-	
+
 	public int gibGroesse()
 	{
 		return _graphenGroesse;

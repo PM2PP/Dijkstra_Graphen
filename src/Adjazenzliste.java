@@ -39,7 +39,8 @@ public class Adjazenzliste implements GraphenInterface
 	@Override
 	public void KanteEinfuegen(int start, int ziel, int gewicht)
 	{
-		_adjazenzliste.get(start).put(ziel, gewicht);	
+		_adjazenzliste.get(start).put(ziel, gewicht);
+		_adjazenzliste.get(ziel).put(start, gewicht);	
 	}
 
 	@Override
