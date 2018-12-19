@@ -9,7 +9,7 @@ class Test_Matrix
 	@Test
 	void TestMatrixKlein()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(6);
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(6, false);
 
 		
 		adjazensmatrix.KanteEinfuegen(0, 1, 3);
@@ -42,7 +42,7 @@ class Test_Matrix
 	@Test
 	void TestMatrixGross()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12);
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12, false);
 		
 		adjazensmatrix.KanteEinfuegen(0, 1, 3);
 		adjazensmatrix.KanteEinfuegen(0, 2, 4);

@@ -20,6 +20,8 @@ public interface GraphenInterface
 	 * @param gewicht die Gewichtung der Kante
 	 */
 	public void KanteEinfuegen(int start, int ziel, int gewicht);
+	
+	public void zufallsKanteEinfuegen();
 
 	/**
 	 * durchquert den Graphen

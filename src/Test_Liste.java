@@ -41,7 +41,7 @@ class Test_Liste
 	@Test
 	void TestMatrixGross()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12);
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12, false);
 		
 		adjazensmatrix.KnotenEinfuegen();
 		adjazensmatrix.KnotenEinfuegen();
