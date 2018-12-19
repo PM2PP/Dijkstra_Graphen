@@ -9,7 +9,7 @@ class Test_Matrix
 	@Test
 	void TestMatrixKlein()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray();
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(6);
 
 		
 		adjazensmatrix.KanteEinfuegen(0, 1, 3);
@@ -42,21 +42,8 @@ class Test_Matrix
 	@Test
 	void TestMatrixGross()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray();
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12);
 		
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-		adjazensmatrix.KnotenEinfuegen();
-
 		adjazensmatrix.KanteEinfuegen(0, 1, 3);
 		adjazensmatrix.KanteEinfuegen(0, 2, 4);
 		adjazensmatrix.KanteEinfuegen(1, 2, 7);

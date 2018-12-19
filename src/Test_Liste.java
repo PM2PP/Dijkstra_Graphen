@@ -9,15 +9,8 @@ class Test_Liste
 	@Test
 	void TestListeKlein()
 	{
-		Adjazenzliste adjazenzliste = new Adjazenzliste(); 
+		Adjazenzliste adjazenzliste = new Adjazenzliste(6); 
 
-		adjazenzliste.KnotenEinfuegen();
-		adjazenzliste.KnotenEinfuegen();
-		adjazenzliste.KnotenEinfuegen();
-		adjazenzliste.KnotenEinfuegen();
-		adjazenzliste.KnotenEinfuegen();
-		adjazenzliste.KnotenEinfuegen();
-		
 		adjazenzliste.KanteEinfuegen(0, 1, 3);
 		adjazenzliste.KanteEinfuegen(0, 2, 4);
 		adjazenzliste.KanteEinfuegen(1, 2, 7);
@@ -48,7 +41,7 @@ class Test_Liste
 	@Test
 	void TestMatrixGross()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray();
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(12);
 		
 		adjazensmatrix.KnotenEinfuegen();
 		adjazensmatrix.KnotenEinfuegen();
