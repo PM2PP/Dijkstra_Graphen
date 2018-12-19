@@ -33,11 +33,15 @@ public class AdjazensmatrixArray implements GraphenInterface
 		}
 		else
 		{
-			Arrays.copyOf(_adjazensmatrix, _adjazensmatrix.length + 20);
-			for (int i = 0; i < _adjazensmatrix.length; ++i)
+			int[][] hilfsarray = new int[_graphenGroesse+20][_graphenGroesse+20];
+			for(int i = 0; i < _adjazensmatrix.length; ++i)
 			{
-				Arrays.copyOf(_adjazensmatrix[i], _adjazensmatrix.length);
+				for(int j = 0; j < _adjazensmatrix[i].length; ++j)
+				{
+					hilfsarray[i][j] = _adjazensmatrix[i][j];
+				}
 			}
+			_adjazensmatrix = hilfsarray;
 			++_graphenGroesse;
 		}
 	}
