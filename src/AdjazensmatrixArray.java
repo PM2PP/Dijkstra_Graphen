@@ -23,11 +23,11 @@ public class AdjazensmatrixArray implements GraphenInterface
 	{
 		_adjazensmatrix = new int[groesse][groesse];
 		_graphenGroesse = groesse;
-		if(istZufallsgraph)
+		if (istZufallsgraph)
 		{
 			Random random = new Random();
-			int zufall = random.nextInt((_graphenGroesse+1)*2);
-			for(int i = 0; i < zufall; ++i)
+			int zufall = random.nextInt((_graphenGroesse + 1) * 2);
+			for (int i = 0; i < zufall; ++i)
 			{
 				zufallsKanteEinfuegen();
 			}
@@ -117,6 +117,6 @@ public class AdjazensmatrixArray implements GraphenInterface
 		int zufallszahl2 = random.nextInt(_graphenGroesse);
 		int zufallsgewicht = random.nextInt(10);
 		_adjazensmatrix[zufallszahl1][zufallszahl2] = zufallsgewicht;
-		_adjazensmatrix[zufallszahl2][zufallszahl1] = zufallsgewicht;		
+		_adjazensmatrix[zufallszahl2][zufallszahl1] = zufallsgewicht;
 	}
 }
