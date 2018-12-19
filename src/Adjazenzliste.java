@@ -81,4 +81,11 @@ public class Adjazenzliste implements GraphenInterface
 		return _adjazenzliste.size();
 	}
 
+	@Override
+	public void zufallsKanteEinfuegen()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

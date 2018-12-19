@@ -7,14 +7,18 @@ public class GraphenVisualisierenMain
 
 	public static void main(String args[]) throws IOException
 	{
+		AdjazensmatrixArray adjazensmatrixZufall1;
+		AdjazensmatrixArray adjazensmatrixZufall2;
 		AdjazensmatrixArray adjazensmatrix;
 		Adjazenzliste adjazensliste;
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		System.out.print("Gib die Graphengroesse ein (muss > 5 sein): ");
 		int eingabe = Integer.parseInt(br.readLine());
-		adjazensmatrix = new AdjazensmatrixArray(eingabe);
+		adjazensmatrix = new AdjazensmatrixArray(eingabe, false);
 		adjazensliste = new Adjazenzliste(eingabe);
+		adjazensmatrixZufall1 = new AdjazensmatrixArray(eingabe, true);
+		adjazensmatrixZufall2 = new AdjazensmatrixArray(eingabe, true);
 
 		if (eingabe > 5)
 		{
@@ -42,14 +46,14 @@ public class GraphenVisualisierenMain
 		adjazensmatrix.DebugHilfe();
 		System.out.println();
 		adjazensliste.DebugHilfe();
-		
 		System.out.println();
-		
+		adjazensmatrixZufall1.DebugHilfe();
+		System.out.println();
+		adjazensmatrixZufall2.DebugHilfe();
+		System.out.println();	
 		DijkstraAlgo algoM = new DijkstraAlgo(adjazensmatrix); 
 		System.out.println(algoM.ermittleKuerzestenWege(1));
-		
 		System.out.println();
-		
 		DijkstraAlgo algoL = new DijkstraAlgo(adjazensliste); 
 		System.out.println(algoL.ermittleKuerzestenWege(1));
 

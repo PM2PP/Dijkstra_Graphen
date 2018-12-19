@@ -8,7 +8,7 @@ public class Test_Algo
 	@Test
 	public void TestMatrix()
 	{
-		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(6);
+		AdjazensmatrixArray adjazensmatrix = new AdjazensmatrixArray(6, false);
 
 		
 		adjazensmatrix.KanteEinfuegen(0, 1, 3);

@@ -77,4 +77,11 @@ public class Adjazenzmatrix implements GraphenInterface
 		return _graphenGroesse;
 	}
 
+	@Override
+	public void zufallsKanteEinfuegen()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }
