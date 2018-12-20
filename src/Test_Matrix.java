@@ -17,7 +17,7 @@ class Test_Matrix
 		adjazensmatrix.KanteEinfuegen(1, 2, 7);
 		adjazensmatrix.KanteEinfuegen(1, 3, 3);
 		adjazensmatrix.KanteEinfuegen(1, 4, 7);
-		adjazensmatrix.KanteEinfuegen(2, 4, 6);
+		adjazensmatrix.KanteEinfuegen(2, 4, 6); 
 		adjazensmatrix.KanteEinfuegen(2, 5, 8);
 		adjazensmatrix.KanteEinfuegen(3, 4, 7);
 		adjazensmatrix.KanteEinfuegen(4, 5, 6);

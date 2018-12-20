@@ -12,35 +12,35 @@ import java.util.Set;
  */
 public class Adjazenzliste implements GraphenInterface
 {
-               //Knotenindex <Nachbarknoten, Kantenlaenge zu diesem>
-	private List<Map<Integer, Integer>>_adjazenzliste;
-	
+	// Knotenindex <Nachbarknoten, Kantenlaenge zu diesem>
+	private List<Map<Integer, Integer>> _adjazenzliste;
+ 
 	public Adjazenzliste()
 	{
 		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
 	}
-	
+
 	public Adjazenzliste(int groesse)
 	{
 		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
-		for(int i = 1; i <= groesse; ++i)
+		for (int i = 1; i <= groesse; ++i)
 		{
 			KnotenEinfuegen();
 		}
 	}
-	
+
 	@Override
 	public void KnotenEinfuegen()
 	{
 		Map<Integer, Integer> subMap = new HashMap<Integer, Integer>();
-		_adjazenzliste.add(subMap);		
+		_adjazenzliste.add(subMap);
 	}
 
 	@Override
 	public void KanteEinfuegen(int start, int ziel, int gewicht)
 	{
 		_adjazenzliste.get(start).put(ziel, gewicht);
-		_adjazenzliste.get(ziel).put(start, gewicht);	
+		_adjazenzliste.get(ziel).put(start, gewicht);
 	}
 
 	@Override
@@ -59,23 +59,23 @@ public class Adjazenzliste implements GraphenInterface
 	@Override
 	public int gibGewichtung(int knoten1, int knoten2)
 	{
-		return _adjazenzliste.get(knoten1).get(knoten2);	
+		return _adjazenzliste.get(knoten1).get(knoten2);
 	}
 
 	@Override
 	public void DebugHilfe()
 	{
-		for(int i = 0; i < _adjazenzliste.size(); ++i)
+		for (int i = 0; i < _adjazenzliste.size(); ++i)
 		{
 			System.out.print("Knoten " + i + ":");
-			for(Integer j : gibNachbarknoten(i))
+			for (Integer j : gibNachbarknoten(i))
 			{
-				System.out.print(" " + j + " " + "(" + gibGewichtung(i, j) + ")");			
+				System.out.print(" " + j + " " + "(" + gibGewichtung(i, j) + ")");
 			}
-			System.out.println();		
+			System.out.println();
 		}
 	}
-	
+
 	public int gibGroesse()
 	{
 		return _adjazenzliste.size();
@@ -85,7 +85,7 @@ public class Adjazenzliste implements GraphenInterface
 	public void zufallsKanteEinfuegen()
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

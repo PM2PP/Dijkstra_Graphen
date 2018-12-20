@@ -12,10 +12,11 @@ public class DijkstraAlgo
 	private Set<Integer> _besuchteKnoten;
 	private List<List<Integer>> _pfadTracker;
 	private List<Integer> _trackingList;
-	
+
+
 	public DijkstraAlgo(GraphenInterface graph)
 	{
-		_graph = graph;		
+		_graph = graph;
 		_kuerzesterKnotenwegListe = new HashMap<Integer, Integer>();
 		_besuchteKnoten = new HashSet<Integer>();
 		_pfadTracker = new LinkedList<List<Integer>>();
@@ -24,27 +25,26 @@ public class DijkstraAlgo
 			_trackingList = new LinkedList<Integer>();
 			_pfadTracker.add(_trackingList);
 		}
-		
-		
+		_besuchteKnoten = new HashSet<Integer>(); 
 	}
-	
+
 	public Map<Integer, Integer> ermittleKuerzestenWege(int startKnoten)
 	{
 		_kuerzesterKnotenwegListe = new HashMap<Integer, Integer>();
 		_besuchteKnoten = new HashSet<Integer>();
 		int bisherigeDistanz;
 		_kuerzesterKnotenwegListe.put(startKnoten, 0);
-		
-		while(_besuchteKnoten.size() < _graph.gibGroesse() && !_besuchteKnoten.contains(startKnoten))
+
+		while (_besuchteKnoten.size() < _graph.gibGroesse() && !_besuchteKnoten.contains(startKnoten))
 		{
-		bisherigeDistanz = _kuerzesterKnotenwegListe.get(startKnoten);
-		setzeAbstaende(startKnoten, bisherigeDistanz);
-		_besuchteKnoten.add(startKnoten);
-		startKnoten = gibNaehestenKnoten(startKnoten);
-		}		
+			bisherigeDistanz = _kuerzesterKnotenwegListe.get(startKnoten);
+			setzeAbstaende(startKnoten, bisherigeDistanz);
+			_besuchteKnoten.add(startKnoten);
+			startKnoten = gibNaehestenKnoten(startKnoten);
+		}
 		return _kuerzesterKnotenwegListe;
 	}
-	
+
 	public void printTrackingListe()
 	{
 		for(int i = 0; i < _graph.gibGroesse(); ++i)
@@ -67,15 +67,17 @@ public class DijkstraAlgo
 		}
 	}
 	
+
+
 	private void setzeAbstaende(int startKnoten, int bisherigeDistanz)
 	{
 		int distanz;
-		for(Integer knoten : _graph.gibNachbarknoten(startKnoten))
+		for (Integer knoten : _graph.gibNachbarknoten(startKnoten))
 		{
-				distanz = _graph.gibGewichtung(startKnoten, knoten);
-				if(!_kuerzesterKnotenwegListe.containsKey(knoten) 
-						|| (_kuerzesterKnotenwegListe.containsKey(knoten) && (bisherigeDistanz + distanz) < _kuerzesterKnotenwegListe.get(knoten)))
-				{
+			distanz = _graph.gibGewichtung(startKnoten, knoten);
+			if (!_kuerzesterKnotenwegListe.containsKey(knoten) || (_kuerzesterKnotenwegListe.containsKey(knoten)
+					&& (bisherigeDistanz + distanz) < _kuerzesterKnotenwegListe.get(knoten)))
+			{
 				_kuerzesterKnotenwegListe.put(knoten, bisherigeDistanz + distanz);
 //				_pfadTracker.set(knoten, _pfadTracker.get(startKnoten));
 //				for(int i = 0; i < _pfadTracker.get(startKnoten).size(); ++i)
@@ -90,23 +92,24 @@ public class DijkstraAlgo
 				_pfadTracker.get(knoten).add(startKnoten);
 				}
 		}			
-	}
-	
+			}
+
+
+
 	private int gibNaehestenKnoten(int startKnoten)
 	{
 		int distanz;
 		int naehesterKnoten = startKnoten;
 		int kleinsteDistanz = Integer.MAX_VALUE;
-		for(Integer knoten : _kuerzesterKnotenwegListe.keySet())	
+		for (Integer knoten : _kuerzesterKnotenwegListe.keySet())
 		{
 			distanz = _kuerzesterKnotenwegListe.get(knoten);
-			if(!_besuchteKnoten.contains(knoten) && distanz < kleinsteDistanz)
+			if (!_besuchteKnoten.contains(knoten) && distanz < kleinsteDistanz)
 			{
-				naehesterKnoten = knoten;			
+				naehesterKnoten = knoten;
 			}
 		}
 		return naehesterKnoten;
 	}
-	
 
 }

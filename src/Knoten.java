@@ -18,7 +18,7 @@ public class Knoten
 	{
 		_index = index;
 		_nachbarknoten = new HashMap<Integer, Integer>();
-	}
+	} 
 
 	public int gibIndex()
 	{

@@ -17,7 +17,7 @@ class Test_Liste
 		adjazenzliste.KanteEinfuegen(1, 3, 3);
 		adjazenzliste.KanteEinfuegen(1, 4, 7);
 		adjazenzliste.KanteEinfuegen(2, 4, 6);
-		adjazenzliste.KanteEinfuegen(2, 5, 8);
+		adjazenzliste.KanteEinfuegen(2, 5, 8); 
 		adjazenzliste.KanteEinfuegen(3, 4, 7);
 		adjazenzliste.KanteEinfuegen(4, 5, 6);
 

@@ -16,18 +16,18 @@ public class AdjazensmatrixArray implements GraphenInterface
 	public AdjazensmatrixArray()
 	{
 		_adjazensmatrix = new int[20][20];
-		_graphenGroesse = 0;
+		_graphenGroesse = 0; 
 	}
 
 	public AdjazensmatrixArray(int groesse, boolean istZufallsgraph)
 	{
 		_adjazensmatrix = new int[groesse][groesse];
 		_graphenGroesse = groesse;
-		if(istZufallsgraph)
+		if (istZufallsgraph)
 		{
 			Random random = new Random();
-			int zufall = random.nextInt((_graphenGroesse+1)*2);
-			for(int i = 0; i < zufall; ++i)
+			int zufall = random.nextInt((_graphenGroesse + 1) * 2);
+			for (int i = 0; i < zufall; ++i)
 			{
 				zufallsKanteEinfuegen();
 			}
@@ -115,6 +115,7 @@ public class AdjazensmatrixArray implements GraphenInterface
 		Random random = new Random();
 		int zufallszahl1 = random.nextInt(_graphenGroesse);
 		int zufallszahl2 = random.nextInt(_graphenGroesse);
+
 		int zufallsgewicht = random.nextInt(9);
 		_adjazensmatrix[zufallszahl1][zufallszahl2] = zufallsgewicht+1;
 		_adjazensmatrix[zufallszahl2][zufallszahl1] = zufallsgewicht+1;		

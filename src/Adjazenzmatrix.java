@@ -15,7 +15,7 @@ public class Adjazenzmatrix implements GraphenInterface
 	private int _graphenGroesse;
 	
 	public Adjazenzmatrix()
-	{
+	{ 
 		_graphenGroesse = 0;
 		_adjazenzmatrix = new ArrayList<List<Integer>>();
 	}
