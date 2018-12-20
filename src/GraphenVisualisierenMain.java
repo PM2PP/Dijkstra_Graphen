@@ -22,7 +22,7 @@ public class GraphenVisualisierenMain
 		AdjazensmatrixArray adjazensmatrix1 = new AdjazensmatrixArray(12, false);
 
 		if (eingabe > 5)
-		{
+		{ 
 			adjazensliste.KanteEinfuegen(0, 1, 3);
 			adjazensliste.KanteEinfuegen(0, 2, 4);
 			adjazensliste.KanteEinfuegen(1, 2, 7);

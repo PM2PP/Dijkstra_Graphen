@@ -13,7 +13,7 @@ public class DijkstraAlgo
 	{
 		_graph = graph;
 		_kuerzesterKnotenwegListe = new HashMap<Integer, Integer>();
-		_besuchteKnoten = new HashSet<Integer>();
+		_besuchteKnoten = new HashSet<Integer>(); 
 	}
 
 	public Map<Integer, Integer> ermittleKuerzestenWege(int startKnoten)

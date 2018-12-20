@@ -17,7 +17,7 @@ public class Kante
 		_knoten2 = zielKnoten;
 		_kantenlaenge = kantenlaenge;
 	}
-	
+	 
 	public int gibKantenlaenge()
 	{
 		return _kantenlaenge;

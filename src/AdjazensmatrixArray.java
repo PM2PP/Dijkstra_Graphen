@@ -16,7 +16,7 @@ public class AdjazensmatrixArray implements GraphenInterface
 	public AdjazensmatrixArray()
 	{
 		_adjazensmatrix = new int[20][20];
-		_graphenGroesse = 0;
+		_graphenGroesse = 0; 
 	}
 
 	public AdjazensmatrixArray(int groesse, boolean istZufallsgraph)

@@ -14,7 +14,7 @@ public class Adjazenzliste implements GraphenInterface
 {
 	// Knotenindex <Nachbarknoten, Kantenlaenge zu diesem>
 	private List<Map<Integer, Integer>> _adjazenzliste;
-
+ 
 	public Adjazenzliste()
 	{
 		_adjazenzliste = new ArrayList<Map<Integer, Integer>>();
