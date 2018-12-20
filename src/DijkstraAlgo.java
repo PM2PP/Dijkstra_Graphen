@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -8,12 +10,22 @@ public class DijkstraAlgo
 	private GraphenInterface _graph;
 	private Map<Integer, Integer> _kuerzesterKnotenwegListe;
 	private Set<Integer> _besuchteKnoten;
+	private List<List<Integer>> _pfadTracker;
+	private List<Integer> _trackingList;
 	
 	public DijkstraAlgo(GraphenInterface graph)
 	{
 		_graph = graph;		
 		_kuerzesterKnotenwegListe = new HashMap<Integer, Integer>();
 		_besuchteKnoten = new HashSet<Integer>();
+		_pfadTracker = new LinkedList<List<Integer>>();
+		for(int i = 0; i < graph.gibGroesse(); ++i)
+		{
+			_trackingList = new LinkedList<Integer>();
+			_pfadTracker.add(_trackingList);
+		}
+		
+		
 	}
 	
 	public Map<Integer, Integer> ermittleKuerzestenWege(int startKnoten)
@@ -33,6 +45,28 @@ public class DijkstraAlgo
 		return _kuerzesterKnotenwegListe;
 	}
 	
+	public void printTrackingListe()
+	{
+		for(int i = 0; i < _graph.gibGroesse(); ++i)
+		{
+			if(!_pfadTracker.get(i).isEmpty())
+			{
+			System.out.println("Pfadverlauf für " + i + ": " + _pfadTracker.get(i));
+			}
+		}
+	}
+	
+	public void printKeyListe()
+	{
+		for(int i = 0; i < _graph.gibGroesse(); ++i)
+		{
+			if(_kuerzesterKnotenwegListe.get(i) != null)
+			{
+			System.out.println("Gewichtung für " + i + ": " + _kuerzesterKnotenwegListe.get(i));
+			}
+		}
+	}
+	
 	private void setzeAbstaende(int startKnoten, int bisherigeDistanz)
 	{
 		int distanz;
@@ -43,6 +77,17 @@ public class DijkstraAlgo
 						|| (_kuerzesterKnotenwegListe.containsKey(knoten) && (bisherigeDistanz + distanz) < _kuerzesterKnotenwegListe.get(knoten)))
 				{
 				_kuerzesterKnotenwegListe.put(knoten, bisherigeDistanz + distanz);
+//				_pfadTracker.set(knoten, _pfadTracker.get(startKnoten));
+//				for(int i = 0; i < _pfadTracker.get(startKnoten).size(); ++i)
+//				{
+//					_pfadTracker.get(knoten).add(_pfadTracker.get(startKnoten).get(i));		
+//				}
+				_pfadTracker.set(knoten, new LinkedList<Integer>());
+				for(Integer i : _pfadTracker.get(startKnoten))
+				{
+					_pfadTracker.get(knoten).add(i);
+				}
+				_pfadTracker.get(knoten).add(startKnoten);
 				}
 		}			
 	}

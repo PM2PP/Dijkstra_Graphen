@@ -51,11 +51,18 @@ public class GraphenVisualisierenMain
 		System.out.println();
 		adjazensmatrixZufall2.DebugHilfe();
 		System.out.println();	
+		
 		DijkstraAlgo algoM = new DijkstraAlgo(adjazensmatrix); 
 		System.out.println(algoM.ermittleKuerzestenWege(1));
 		System.out.println();
+		algoM.printTrackingListe();
+		System.out.println();
 		DijkstraAlgo algoL = new DijkstraAlgo(adjazensliste); 
 		System.out.println(algoL.ermittleKuerzestenWege(1));
+		System.out.println();
+		algoL.printTrackingListe();
+		
+		
 
 	}
 }
